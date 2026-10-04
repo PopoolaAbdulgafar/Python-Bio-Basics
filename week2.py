@@ -1,69 +1,61 @@
-print("week 2:")
+"""Week 2: Basic Python concepts for bioinformatics."""
 
-DAY 7 CONDITION
+# DAY 7 - CONDITIONS
 
 seq = "ATGCGCATTAAGCGT"
-GC = 7
-total = 15
-per = (GC/total)*100
-print(round(per, 1))
-if per > 60:
+gc_count = seq.count("G") + seq.count("C")
+total = len(seq)
+gc_content = (gc_count / total) * 100
+
+print(f"GC content: {round(gc_content, 1)}%")
+
+if gc_content > 60:
     print("GC-rich")
-elif per > 40:
+elif gc_content > 40:
     print("AT-rich")
 else:
-    print("GC is betw 40 and 60")
+    print("GC content is between 0 and 40%")
 
 
+# DAY 8 - FILE WRITING AND READING
+
+with open("sequence.txt") as file:
+    for sequence in file:
+        sequence = sequence.strip()
+        print(f"Sequence: {sequence}, Length: {len(sequence)}")
 
 
+# DAY 9 - FUNCTIONS
 
-DAY 8 FILE WRITE & READING
-
-with open("sequence.txt") as f:
-    for x in f:
-        seq = x.strip()
-        print(f"sequence: {seq}, length: {len(seq)}")
-
+def gc_content(sequence):
+    """Calculate the GC content of a DNA sequence."""
+    gc_count = sequence.upper().count("G") + sequence.upper().count("C")
+    return (gc_count / len(sequence)) * 100
 
 
-
-DAY 9 FUNCTION
-
-def gc_content(seq):
-        count = 0
-    
-        for base  in  seq:
-            if base == "G":
-                count += 1
-            elif base == "c":
-                count += 1
-        return count
 print(gc_content("ATGCCGTCAGGC"))
 
 
-
-
-DAY 10 - ERROR HANDLING
+# DAY 10 - ERROR HANDLING
 
 try:
     print(x)
-except:
-    print("wow")
+except NameError:
+    print("The variable 'x' is not defined.")
 finally:
-    print("the 'try except' is finished")
-
+    print("The try-except block is finished.")
 
 
 # DAY 11 - MODULES
+
 import math
 
 print(math.sqrt(16))
 
 
+# DAY 12 - JUPYTER NOTEBOOK PRACTICE
+# Practice the same Python concepts inside a Jupyter Notebook.
 
-# DAY 12
-# Practice the same codes inside Jupyter Notebook
 
 
 
